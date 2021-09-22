@@ -10,11 +10,22 @@ import Search from "./Search";
 
 export default function App() {
   return (
-    <div className="App Container">
-      <Search />
-      <CurrentWeather />
-      <CurrentLocation />
-      <Forecast />
+    <div>
+      <div className="App Container">
+        <Search />
+        <CurrentWeather />
+        <CurrentLocation />
+        <Forecast />
+      </div>
+      <div id="footer">
+        <a
+          href="https://github.com/kristinbaker/weather-react-app"
+          alt="Github Link"
+        >
+          Open-source code{" "}
+        </a>{" "}
+        by Kristin Baker
+      </div>
     </div>
   );
 }
