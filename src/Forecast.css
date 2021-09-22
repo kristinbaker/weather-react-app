@@ -1,0 +1,64 @@
+.Forecast {
+  cursor: pointer;
+  margin-bottom: -1px;
+  padding-bottom: 1px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  transform: translate3d(0px, 0px, 0px);
+  padding-top: 30px;
+  white-space: nowrap;
+}
+
+.Forecast .Forecast-daily-containers {
+  outline: 0;
+  border-radius: 10px;
+  display: inline-block;
+  height: 95px;
+  line-height: 1;
+  margin-right: 7px;
+  text-align: center;
+  width: 75px;
+  font-size: medium;
+  font-weight: normal;
+  font-family: Roboto, arial, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #202124;
+}
+
+.Day {
+  line-height: 15px;
+  padding-top: 7px;
+  color: #bababa;
+  display: block;
+}
+
+.Weather-icon {
+  display: inline-block;
+  line-height: 1;
+}
+
+.Forecast-temperature {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 15px;
+  display: block;
+}
+
+.Forecast-high {
+  display: inline-block;
+  padding-right: 5px;
+  color: #70757a;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 15px;
+}
+
+.Forecast-low {
+  display: inline-block;
+  color: #bababa;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 15px;
+}
