@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./App.css";
 
 import CurrentWeather from "./CurrentWeather";
 
@@ -10,8 +10,8 @@ import Search from "./Search";
 
 export default function App() {
   return (
-    <div>
-      <div className="App Container">
+    <div className="App">
+      <div className="container">
         <Search />
         <CurrentWeather />
         <CurrentLocation />
