@@ -1,8 +1,6 @@
 import "./App.css";
 
-import CurrentWeather from "./CurrentWeather";
-
-import CurrentLocation from "./CurrentLocation";
+import CurrentData from "./CurrentData";
 
 import Forecast from "./Forecast";
 
@@ -13,12 +11,12 @@ export default function App() {
     <div className="App">
       <div className="container">
         <Search />
-        <CurrentWeather />
-        <CurrentLocation />
+        <CurrentData />
         <Forecast />
       </div>
-      <div id="footer">
+      <div className="footer">
         <a
+          className="code-link"
           href="https://github.com/kristinbaker/weather-react-app"
           alt="Github Link"
         >
