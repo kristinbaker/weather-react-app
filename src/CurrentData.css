@@ -1,9 +1,25 @@
+.Current-data {
+  font-family: Roboto, arial, sans-serif;
+  font-weight: normal;
+  width: 645px;
+  margin-right: 0;
+  display: inline-block;
+}
+
 .Current-weather {
   text-align: left;
   vertical-align: top;
   width: 50%;
-  font-family: Roboto, arial, sans-serif;
+  display: inline-block;
+}
+
+.Current-location {
+  vertical-align: top;
+  text-align: right;
+  width: 50%;
+  font-size: medium;
   font-weight: normal;
+  font-family: Roboto, arial, sans-serif;
   display: inline-block;
 }
 
@@ -19,7 +35,7 @@
   display: inline-block;
   padding-left: 10px;
   vertical-align: top;
-  color: #202124;
+  color: #202225;
 }
 
 .Current-temperature #Temperature {
@@ -29,7 +45,7 @@
 }
 
 .Current-temperature .Units {
-  color: #202124;
+  color: #202225;
   display: inline-block;
   font-size: 16px;
   line-height: 24px;
@@ -50,4 +66,25 @@
 
 .Current-temperature .Celsius {
   color: #70757a;
+}
+
+.City {
+  color: #202225;
+  font-size: 22px;
+  line-height: 26px;
+  display: block;
+}
+
+.Date {
+  color: #70757a;
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
+}
+
+.Weather-description {
+  color: #70757a;
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
 }

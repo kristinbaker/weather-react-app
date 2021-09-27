@@ -30,7 +30,7 @@
 .Day {
   line-height: 15px;
   padding-top: 7px;
-  color: #bababa;
+  color: #202225;
   display: block;
 }
 
@@ -49,7 +49,7 @@
 .Forecast-high {
   display: inline-block;
   padding-right: 5px;
-  color: #70757a;
+  color: #202225;
   font-size: 13px;
   font-weight: normal;
   line-height: 15px;
@@ -57,7 +57,7 @@
 
 .Forecast-low {
   display: inline-block;
-  color: #bababa;
+  color: #858a8d;
   font-size: 13px;
   font-weight: normal;
   line-height: 15px;

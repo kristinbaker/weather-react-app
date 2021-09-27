@@ -1,5 +1,4 @@
 .App {
-  font-family: sans-serif;
   text-align: center;
 }
 
@@ -10,21 +9,20 @@
   margin-left: 50px;
 }
 
-#footer {
+.footer {
   text-decoration: none;
   color: #4b4c4e;
   text-align: center;
   font-family: sans-serif;
-  width: 645px;
   margin-top: 50px;
 }
 
-a:hover {
+.code-link:hover {
   text-decoration: underline;
   color: grey;
 }
 
-a {
+.code-link {
   text-decoration: none;
   color: #4b4c4e;
 }
