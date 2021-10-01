@@ -2,6 +2,8 @@ import React from "react";
 
 import FormattedDate from "./FormattedDate";
 
+import TemperatureUnit from "./TemperatureUnit";
+
 export default function WeatherData(props) {
   return (
     <div className="Current-data">
@@ -12,16 +14,7 @@ export default function WeatherData(props) {
           src={props.data.iconURL}
           id=""
         />
-        <div className="Current-temperature">
-          <span id="Temperature"> {Math.round(props.data.temperature)} </span>
-          <div className="Units">
-            <span id="°Fahrenheit">°F</span>
-            <span className="Celsius"> | </span>
-            <span className="Celsius" id="Celsius-link">
-              °C
-            </span>
-          </div>
-        </div>
+        <TemperatureUnit fahrenheit={props.data.temperature}/>
         <div className="Current-precipitation-humidity-wind">
           <div>
             Precipitation: <span> % </span>
