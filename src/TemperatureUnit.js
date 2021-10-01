@@ -31,7 +31,6 @@ export default function TemperatureUnit(props){
       </div>
     );
     } else {
-        // let celsius = ((props.fahrenheit) - 32) * 5 / 9;
         return (
          <div className="Current-temperature">
             <span id="Temperature"> {Math.round(celsius())} </span>
