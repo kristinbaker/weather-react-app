@@ -1,112 +1,36 @@
+import React, { useState } from "react";
+import axios from "axios";
 import "./Forecast.css";
+import ForecastDay from "./ForecastDay";
 
-export default function Forecast() {
-  return (
-    <div className="Forecast">
-      <div className="Forecast-daily-containers">
-        <div className="Day"> Wed </div>
-        <div className="Weather-icon">
-          <img
-            alt="Mostly sunny"
-            src="//ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-          />
+export default function Forecast(props) {
+  let [loaded, setLoaded]= useState(false);
+  let [forecast, setForecast]= useState(null);
+
+  function handleResponse(response){
+    setForecast(response.data.daily);
+    setLoaded(true);
+    props.setPrecipitation(Math.round(response.data.daily[0].pop * 100))
+  }
+  
+  if (loaded){
+    console.log(forecast);
+    return (
+      <div className="Forecast">
+        <div className="Forecast-daily-containers">
+          <ForecastDay data={forecast[0]}/>
         </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">99°</span>
-          <span className="Forecast-low">71°</span>
         </div>
-      </div>
-      <div className=" Forecast-daily-containers">
-        <div className="Day">Thu </div>
-        <div className="Weather-icon">
-          <img
-            alt="Sunny"
-            src="//ssl.gstatic.com/onebox/weather/48/sunny.png"
-          />
-        </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">97°</span>
-          <span className="Forecast-low">67°</span>
-        </div>
-      </div>
-      <div className="Forecast-daily-containers">
-        <div className="Day"> Fri </div>
-        <div className="Weather-icon">
-          <img
-            alt="Sunny"
-            src="//ssl.gstatic.com/onebox/weather/48/sunny.png"
-          />
-        </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">95°</span>
-          <span className="Forecast-low">66°</span>
-        </div>
-      </div>
-      <div className="Forecast-daily-containers">
-        <div className="Day">Sat</div>
-        <div className="Weather-icon">
-          <img
-            alt="Sunny"
-            src="//ssl.gstatic.com/onebox/weather/48/sunny.png"
-          />
-        </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">96°</span>
-          <span className="Forecast-low">66°</span>
-        </div>
-      </div>
-      <div className="Forecast-daily-containers">
-        <div className="Day">Sun</div>
-        <div className="Weather-icon">
-          <img
-            alt="Partly cloudy"
-            src="//ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-          />
-        </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">93°</span>
-          <span className="Forecast-low">72°</span>
-        </div>
-      </div>
-      <div className="Forecast-daily-containers">
-        <div className="Day">Mon</div>
-        <div className="Weather-icon">
-          <img
-            alt="Isolated thunderstorms"
-            src="//ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png"
-          />
-        </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">89°</span>
-          <span className="Forecast-low">72°</span>
-        </div>
-      </div>
-      <div className="Forecast-daily-containers">
-        <div className="Day">Tue</div>
-        <div className="Weather-icon">
-          <img
-            alt="Partly cloudy"
-            src="//ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-          />
-        </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">92°</span>
-          <span className="Forecast-low">73°</span>
-        </div>
-      </div>
-      <div className="Forecast-daily-containers">
-        <div className="Day">Wed</div>
-        <div className="Weather-icon">
-          <img
-            alt="Isolated thunderstorms"
-            src="//ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png"
-          />
-        </div>
-        <div className="Forecast-temperature">
-          <span className="Forecast-high">93°</span>
-          <span className="Forecast-low">73°</span>
-        </div>
-      </div>
-    </div>
   );
+  
+} else {
+  const apiKey = "f1b97e6818bf3a43bc9a1319c9ff238a";
+  let latitude= props.coordinates.lat;
+  let longitude= props.coordinates.lon;
+  let apiURL= `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiURL).then(handleResponse);
+  return "Loading...";
+  
+} 
 }

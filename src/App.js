@@ -2,14 +2,13 @@ import "./App.css";
 
 import Weather from "./Weather";
 
-import Forecast from "./Forecast";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
         <Weather defaultCity="Austin" />
-        <Forecast />
+  
       </div>
       <div className="footer">
         This project was coded by <a className="footer-links" href="https://www.linkedin.com/in/kristinbaker1/" alt="Personal Website"> Kristin Baker </a> and is  {""}

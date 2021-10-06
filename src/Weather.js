@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import WeatherData from "./WeatherData";
+import Forecast from "./Forecast";
+
 
 export default function Weather(props) {
   const [weatherData, setweatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [precipitation, setPrecipitation] = useState(0)
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -23,16 +26,16 @@ export default function Weather(props) {
   }
 
   function handleResponse(response) {
-    console.log(response.data);
     setweatherData({
       ready: true,
-      date: new Date(response.data.dt * 1000),
+      date: new Date(),
+      coordinates: response.data.coord,
       city: response.data.name,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
-      iconURL: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -53,7 +56,7 @@ export default function Weather(props) {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="Search-icon"
+                className="Search-icon"
                 viewBox="0 0 16 16"
               >
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -61,7 +64,8 @@ export default function Weather(props) {
             </button>
           </div>
         </form>
-        <WeatherData data={weatherData} />
+        <WeatherData data={weatherData} precipitation={precipitation} />
+        <Forecast coordinates={weatherData.coordinates} setPrecipitation={setPrecipitation}/>
       </div>
     );
   } else {

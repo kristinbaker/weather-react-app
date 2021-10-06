@@ -4,20 +4,17 @@ import FormattedDate from "./FormattedDate";
 
 import TemperatureUnit from "./TemperatureUnit";
 
+import WeatherIcon from "./WeatherIcon";
+
 export default function WeatherData(props) {
   return (
     <div className="Current-data">
       <div className="Current-weather">
-        <img
-          className="Weather-icon"
-          alt="Sunny"
-          src={props.data.iconURL}
-          id=""
-        />
+        <WeatherIcon icon={props.data.icon}/>
         <TemperatureUnit fahrenheit={props.data.temperature}/>
         <div className="Current-precipitation-humidity-wind">
           <div>
-            Precipitation: <span> % </span>
+            Precipitation: <span> {props.precipitation}% </span>
           </div>
           <div>
             Humidity: <span> {props.data.humidity}% </span>
