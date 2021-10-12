@@ -2,12 +2,11 @@
   cursor: pointer;
   margin-bottom: -1px;
   padding-bottom: 1px;
-  position: relative;
-  left: 0px;
-  top: 0px;
   transform: translate3d(0px, 0px, 0px);
   padding-top: 30px;
   white-space: nowrap;
+  display: flex;
+  justify-content: center;
 }
 
 .Forecast-daily-containers {
