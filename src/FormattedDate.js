@@ -10,12 +10,25 @@ export default function FormattedDate(props) {
   ];
   let day = days[props.date.getDay()];
   let hours = props.date.getHours();
+  let timeOfDay;
+
   if (hours < 10) {
     hours = `0${hours}`;
+
   }
+
+  if (hours < 12) {
+    timeOfDay = `AM`;
+  } else if (hours === 12) {
+    timeOfDay = `PM`;
+  } else {
+    hours = hours - 12;
+    timeOfDay = `PM`;
+  }
+ 
   let minutes = props.date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes} ${timeOfDay}`;
 }
