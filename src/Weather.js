@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Weather.css";
 import WeatherData from "./WeatherData";
@@ -7,7 +7,7 @@ import Forecast from "./Forecast";
 
 export default function Weather(props) {
   const [weatherData, setweatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState('');
   const [precipitation, setPrecipitation] = useState(0)
 
   function handleSubmit(event) {
@@ -19,6 +19,26 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+useEffect(() => {
+  getLocation()
+  }, [])
+
+function getLocation(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getCurrentPositionWeather)
+  } else {
+    return "Geolocation is not supported by this browser.";
+  }
+} 
+
+function getCurrentPositionWeather(location){
+  let latitude= (location.coords.latitude);
+  let longitude= (location.coords.longitude);
+  const apiKey = "f1b97e6818bf3a43bc9a1319c9ff238a";
+  let apiURL= `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+  axios.get(apiURL).then((res) => handleResponse(res, {lat: latitude, lon: longitude}));
+}
+ 
   function search() {
     const apiKey = "f1b97e6818bf3a43bc9a1319c9ff238a";
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
@@ -38,7 +58,7 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
     });
   }
-
+  
   if (weatherData.ready) {
     return (
       <div>
@@ -69,7 +89,6 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    search();
     return `Loading...`;
   }
 }
