@@ -21,6 +21,7 @@ export default function Weather(props) {
 
 useEffect(() => {
   getLocation()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 function getLocation(){
