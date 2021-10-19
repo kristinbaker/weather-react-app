@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 import WeatherData from "./WeatherData";
 import Forecast from "./Forecast";
+import Footer from "./Footer";
 
 
 export default function Weather(props) {
@@ -87,6 +88,7 @@ function getCurrentPositionWeather(location){
         </form>
         <WeatherData data={weatherData} precipitation={precipitation} />
         <Forecast coordinates={weatherData.coordinates} setPrecipitation={setPrecipitation}/>
+        <Footer /> 
       </div>
     );
   } else {

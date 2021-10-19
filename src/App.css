@@ -7,23 +7,4 @@
   margin-bottom: 30px;
 }
 
-.footer {
-  text-decoration: none;
-  color: #4b4c4e;
-  text-align: center;
-  font-family: sans-serif;
-  margin-top: 50px;
-  font-size: 12px;
-
- 
-}
-
-.footer-links:hover {
-  text-decoration: underline;
-  color: grey;
-}
-
-.footer-links {
-  text-decoration: none;
-}
 
