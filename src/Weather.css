@@ -1,21 +1,22 @@
 .Current-data {
   font-family: Roboto, arial, sans-serif;
   font-weight: normal;
-  width: 645px;
+  max-width: 645px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
 .Current-weather {
   text-align: left;
   vertical-align: top;
-  width: 50%;
   display: inline-block;
 }
 
 .Current-location {
   vertical-align: top;
   text-align: right;
-  width: 50%;
   font-size: medium;
   font-weight: normal;
   font-family: Roboto, arial, sans-serif;
